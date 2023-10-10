@@ -12,9 +12,13 @@ const createBtn = controlsDiv.querySelector('button[data-create]');
 const destroyBtn = controlsDiv.querySelector('button[data-destroy]');
 const divBox = document.querySelector('#boxes');
 
-createBtn.addEventListener('click', (event) => {
-  const number = event.target.previousElementSibling.value;
-  createBoxes(number);
+controlsDiv.addEventListener('click', (event) => {
+  if (event.target.textContent === 'Create') {
+    const number = event.currentTarget.firstElementChild.value;
+    createBoxes(number);
+  } else if (event.target.textContent === 'Destroy') {
+    clearBox();
+  }
 });
 
 function createBoxes(amount) {
@@ -30,6 +34,7 @@ function createBoxes(amount) {
   }
 }
 
-destroyBtn.addEventListener('click', () => {
+function clearBox() {
   divBox.innerHTML = '';
-})
+  controlsDiv.firstElementChild.value = null;
+}

@@ -11,7 +11,6 @@ const fields = controlsDiv.querySelector('input');
 const createBtn = controlsDiv.querySelector('button[data-create]');
 const destroyBtn = controlsDiv.querySelector('button[data-destroy]');
 const divBox = document.querySelector('#boxes');
-let number;
 
 createBtn.addEventListener('click', (event) => {
   const number = event.target.previousElementSibling.value;
